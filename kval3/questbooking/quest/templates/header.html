@@ -1,0 +1,21 @@
+<nav>
+    <ul>
+        <li> <img src = "/media/logo.jpg" width = "70px"> </li>
+        {% if user.is_superuser %} 
+            <li><a role="button" href="/admin"> ADMIN </a></li> 
+        {% endif %}
+        <li><a role="button" href="/login">VHOD</a></li>
+        <li><a role="button" href="/register">REGISTRATION</a></li>
+        <li>
+            <form action = '/logout/' method="post"> 
+                {% csrf_token %} 
+                <button type="submit"> выйти </button> 
+            </form>
+        </li>
+        {% if user.is_authenticated %}
+            <li><a role="button" href="/">OSNOVNAYA</a></li> 
+            <li><a role="button" href="/bookings_list/">ZAPISI</a></li> 
+            <li><a role="button" href ="/booking/"> ZAPIS </a></li>
+        {% endif %}
+    </ul>
+</nav>

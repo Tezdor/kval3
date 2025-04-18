@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+{% for booking in bookings %}
+    <h3>Запись {{ booking.id }}</h3>
+    <p> {{ booking.quest }} </p>
+    <p> {{ booking.booking_date }} </p>
+    <p> {{ booking.booking_status }} </p>
+    {% if booking.cancellation_reason %}
+        <p> {{ booking.cancellation_reason }} </p>
+    {% endif %}
+    
+{% endfor %}
+{% endblock content %}
